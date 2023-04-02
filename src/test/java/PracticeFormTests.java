@@ -10,7 +10,7 @@ public class PracticeFormTests extends PracticeFormConfig {
     @Test
     void successfulPracticeFormTest() {
         //Открываем сайт demoqa.com
-        open("https://demoqa.com/automation-practice-form");
+        open("/automation-practice-form");
         //Удаление банеров и footer
         executeJavaScript("$('#fixedban').remove()");
         executeJavaScript("$('footer').remove()");
@@ -20,7 +20,8 @@ public class PracticeFormTests extends PracticeFormConfig {
         //Заполняем поле email
         $("#userEmail").setValue("aaa@qa.com");
         //Выбираем Gender
-        $("#gender-radio-2").parent().click();
+        //$("#gender-radio-2").parent().click();
+        $(byText("Female")).click();
         //Заполняем поле Mobile
         $("#userNumber").setValue("9999999999");
         //Выбираем Date of Birth
@@ -56,7 +57,7 @@ public class PracticeFormTests extends PracticeFormConfig {
                 text("Maths"),text("Sports, Reading"),
                 text("practiceFormPicture.jpg"),text("Some street 1"),
                 text("Haryana Karnal"));
-        $("#closeLargeModal").click();
+        //$("#closeLargeModal").click();
     }
 
 }
