@@ -11,6 +11,7 @@ public class PracticeFormTests extends PracticeFormConfig {
     void successfulPracticeFormTest() {
         //Открываем сайт demoqa.com
         open("/automation-practice-form");
+        $(".practice-form-wrapper").shouldHave(text("Student Registration Form"));
         //Удаление банеров и footer
         executeJavaScript("$('#fixedban').remove()");
         executeJavaScript("$('footer').remove()");
@@ -21,7 +22,7 @@ public class PracticeFormTests extends PracticeFormConfig {
         $("#userEmail").setValue("aaa@qa.com");
         //Выбираем Gender
         //$("#gender-radio-2").parent().click();
-        $(byText("Female")).click();
+        $("#genterWrapper").$(byText("Female")).click();
         //Заполняемполе Mobile
         $("#userNumber").setValue("9999999999");
         //Выбираем Date of Birth
@@ -51,6 +52,8 @@ public class PracticeFormTests extends PracticeFormConfig {
         $("#stateCity-wrapper").$(byText("Karnal")).click();
         $("#submit").click();
 
+        //Проверка соответствия заполненных данных и данных в форме
+        $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
         $(".table-responsive").shouldHave(text("Venera Tolubaeva"),
                 text("aaa@qa.com"),
                 text("Female"),
