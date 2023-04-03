@@ -52,10 +52,14 @@ public class PracticeFormTests extends PracticeFormConfig {
         $("#submit").click();
 
         $(".table-responsive").shouldHave(text("Venera Tolubaeva"),
-                text("aaa@qa.com"),text("Female"),
-                text("9999999999"),text("30 November,1987"),
-                text("Maths"),text("Sports, Reading"),
-                text("practiceFormPicture.jpg"),text("Some street 1"),
+                text("aaa@qa.com"),
+                text("Female"),
+                text("9999999999"),
+                text("30 November,1987"),
+                text("Maths"),
+                text("Sports, Reading"),
+                text("practiceFormPicture.jpg"),
+                text("Some street 1"),
                 text("Haryana Karnal"));
         $("#closeLargeModal").click();
     }
