@@ -9,44 +9,44 @@ public class PracticeFormTests extends PracticeFormConfig {
 
     @Test
     void successfulPracticeFormTest() {
-        //Открываем сайт demoqa.com
+        //РћС‚РєСЂС‹РІР°РµРј СЃР°Р№С‚ demoqa.com
         open("/automation-practice-form");
-        //Удаление банеров и footer
+        //РЈРґР°Р»РµРЅРёРµ Р±Р°РЅРµСЂРѕРІ Рё footer
         executeJavaScript("$('#fixedban').remove()");
         executeJavaScript("$('footer').remove()");
-        //Заполняем поля Name
+        //Р—Р°РїРѕР»РЅСЏРµРјРїРѕР»СЏ Name
         $("#firstName").setValue("Venera");
         $("#lastName").setValue("Tolubaeva");
-        //Заполняем поле email
+        //Р—Р°РїРѕР»РЅСЏРµРј РїРѕР»Рµe mail
         $("#userEmail").setValue("aaa@qa.com");
-        //Выбираем Gender
+        //Р’С‹Р±РёСЂР°РµРј Gender
         //$("#gender-radio-2").parent().click();
         $(byText("Female")).click();
-        //Заполняем поле Mobile
+        //Р—Р°РїРѕР»РЅСЏРµРјРїРѕР»Рµ Mobile
         $("#userNumber").setValue("9999999999");
-        //Выбираем Date of Birth
+        //Р’С‹Р±РёСЂР°РµРј Date of Birth
         $("#dateOfBirthInput").pressEnter();
         $("#dateOfBirthInput").clear();
         $(".react-datepicker__year-select").selectOptionByValue("1987");
         $(".react-datepicker__month-select").selectOptionByValue("10");
         $(".react-datepicker__day--030").click();
-//      Либо можно вписать дату вручную, но это менее предпочтительный вариант
-//        $("#dateOfBirthInput").sendKeys(CONTROL + "A");
-//        $("#dateOfBirthInput").sendKeys("01 Mar 1990");
-//        $("#dateOfBirthInput").pressEnter();
-        //Заполняем поле Subjects
+        //Р›РёР±Рѕ РјРѕР¶РЅРѕ РІРїРёСЃР°С‚СЊ РґР°С‚Сѓ РІСЂСѓС‡РЅСѓСЋ, РЅРѕ СЌС‚Рѕ РјРµРЅРµРµ РїСЂРµРґРїРѕС‡С‚РёС‚РµР»СЊРЅС‹Р№ РІР°СЂРёР°РЅС‚
+        //$("#dateOfBirthInput").sendKeys(CONTROL+"A");
+        //$("#dateOfBirthInput").sendKeys("01Mar1990");
+        //$("#dateOfBirthInput").pressEnter();
+        //Р—Р°РїРѕР»РЅСЏРµРјРїРѕР»Рµ Subjects
         $("#subjectsInput").setValue("Math").pressEnter();
-        //Выбираем Hobbies
+        //Р’С‹Р±РёСЂР°РµРј Hobbies
         $("#hobbies-checkbox-1").parent().click();
         $(byText("Reading")).click();
-        //Загружаем picture
+        //Р—Р°РіСЂСѓР¶Р°РµРј picture
         $("#uploadPicture").uploadFromClasspath("practiceFormPicture.jpg");
-        //Заполняем Current address
+        //Р—Р°РїРѕР»РЅСЏРµРј Current address
         $("#currentAddress").setValue("Some street 1");
-        //Выбираем State
+        //Р’С‹Р±РёСЂР°РµРј State
         $("#state").click();
         $("#stateCity-wrapper").$(byText("Haryana")).click();
-        //Выбираем City
+        //Р’С‹Р±РёСЂР°РµРј City
         $("#city").click();
         $("#stateCity-wrapper").$(byText("Karnal")).click();
         $("#submit").click();
@@ -57,7 +57,6 @@ public class PracticeFormTests extends PracticeFormConfig {
                 text("Maths"),text("Sports, Reading"),
                 text("practiceFormPicture.jpg"),text("Some street 1"),
                 text("Haryana Karnal"));
-        //$("#closeLargeModal").click();
+        $("#closeLargeModal").click();
     }
-
 }
